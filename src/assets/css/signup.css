@@ -1,0 +1,149 @@
+body,
+input {
+  font-family: "Poppins", sans-serif;
+}
+.box {
+  height: 97vh;
+  width: 100%;
+}
+.inner-box {
+  width: 98%;
+  background-color: white;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: auto;
+  height: 97vh;
+  display: flex;
+}
+.image {
+  background-color: #fd7171;
+  width: 70%;
+}
+.img-show-1 {
+  height: 100%;
+  width: 100%;
+  opacity: 0.7;
+}
+.forms-wrap {
+  background-color: white;
+  width: 30%;
+  display: flex;
+  align-items: center;
+}
+.forms-wrap form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+}
+.logo img {
+  width: 50px;
+  margin-right: 10px;
+}
+.logo h1 {
+  font-size: 30px;
+  color: #151111;
+}
+.heading h3 {
+  font-size: 25px;
+  font-weight: 400;
+  margin: 0;
+  color: #151111;
+}
+.heading h6 {
+  margin: 0;
+  margin-top: 10px;
+  color: rgb(121, 121, 121);
+  font-weight: 400;
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+.toggle {
+  color: #151111;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 400;
+  transition: 0.3s;
+}
+.toggle:hover {
+  color: #fd7171;
+}
+.input-wrap {
+  position: relative;
+  height: 30px;
+  margin: 10px;
+}
+.input-field {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #bbb;
+  padding: 0;
+  color: #151111;
+  transition: 0.4s;
+}
+.input-field:active {
+  border-bottom-color: #151111;
+  font-size: 0.75rem;
+}
+.sign-btn {
+  width: 100%;
+  height: 43px;
+  background-color: #151111;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.8rem;
+  font-size: 0.8rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  transition: 0.3s;
+}
+.sign-btn:hover {
+  background-color: #fd7171;
+}
+.error {
+  font-size: 13px;
+  margin: 10px;
+  color: red;
+}
+.material-icons{
+  font-size: 13px;
+}
+@media (max-width: 1140px) {
+  .image {
+    width: 55%;
+  }
+  .forms-wrap {
+    width: 45%;
+  }
+}
+@media (max-width: 770px) {
+  .inner-box {
+    width: 90%;
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+  }
+  .forms-wrap {
+    padding: 0;
+    width: 100%;
+  }
+  .image {
+    width: 100%;
+    opacity: 1;
+  }
+}

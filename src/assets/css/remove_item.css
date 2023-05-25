@@ -1,0 +1,66 @@
+.r-container{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.555);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+ .r-details{
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    width: 30%;
+    height: 23vh;
+    margin: auto;
+}
+
+.r-data{
+    display: flex;
+}
+
+.r-img{
+    width: 30%;
+    height: 25%;
+}
+
+.r-img img{
+    width: 100px;
+    height: 80px;
+}
+
+.r-content{
+    padding-left: 10px;
+    font-size: 13px;
+}
+
+.r-content p{
+ line-height: 1.3;
+}
+.r-remove{
+    margin: 10px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 13px;
+}
+.r-r-btn{
+    color: rgb(88, 86, 86);
+    font-weight: 600;
+}
+.r-w-btn{
+    color: rgb(138, 47, 62);
+    font-weight: 600;
+}
+.r-close-btn .fa-close{
+font-size: 20px;
+}
+ .r-r-btn:hover , .r-w-btn:hover{
+    cursor: pointer;
+ }

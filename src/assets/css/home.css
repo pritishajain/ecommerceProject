@@ -1,0 +1,112 @@
+.hcontent {
+  position: absolute;
+  width: 100%;
+  overflow-x: hidden;
+}
+.image-box {
+  height: 90vh;
+  position: relative;
+}
+.carouselcontent {
+  top: 40%;
+  left: 5%;
+  position: absolute;
+}
+.hhead {
+  margin: 0;
+  font-size: 50px;
+  font-weight: 500;
+}
+.hchild {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 300;
+}
+.upper {
+  margin-bottom: 100px;
+}
+.lower {
+  position: relative;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+.lower h1 {
+  padding: 20px;
+}
+.lower h1 .heading {
+  font-weight: 700;
+  padding: 20px;
+  background-color: rgb(180, 190, 190);
+}
+.lhead {
+    position: relative;
+  display: flex;
+  width: 100%;
+  overflow-x: hidden;
+}
+.lcontent1{
+    width: 50%;
+}
+.lcontent2{
+    width: 50%;
+}
+.limage{
+  opacity: 1;
+  transition: 0.5s ease;
+  backface-visibility: hidden;
+  width: 100%;
+  height: 400px;
+}
+.latest-content-1{
+  transition: 0.5s ease;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  transition: 0.5s;
+  position: absolute;
+  top: 40%;
+  left: 25%;
+}
+.latest-content-2{
+    transition: 0.5s ease;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    transition: 0.5s;
+    position: absolute;
+    top: 40%;
+    left: 75%;
+  }
+.lcontent1:hover .limage {
+  opacity: 0.8;
+  transform: scale(0.9);
+}
+.lcontent1:hover .latest-content-1{
+  opacity: 1;
+}
+.lcontent2:hover .limage {
+    opacity: 0.8;
+    transform: scale(0.9);
+  }
+  .lcontent2:hover .latest-content-2{
+    opacity: 1;
+  }
+.latest-head {
+  font-size: 50px;
+  font-weight: 700;
+  margin: 0;
+  color: rgb(255, 255, 255);
+}
+.latest-child {
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 500;
+  background-color: black;
+  color: white;
+}
+.latest-child:hover{
+    background-color: grey;
+}
+

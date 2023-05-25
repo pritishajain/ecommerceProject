@@ -1,0 +1,105 @@
+.c-containerP{
+    width:90%;
+    margin: auto;
+}
+.c-containerC{
+    margin-top: 40px;
+    display:flex;
+    width: 100%;
+  
+}
+.c-details{
+    width: 60%;
+   
+}
+.c-checkout{
+    width: 40%;
+    margin: 10px;
+    border: 2px solid rgb(170, 167, 167);
+    height: 50vh;
+    padding: 15px;
+}
+.price{
+    color: gray;
+    font-size: 15px;
+    padding: 10px;
+}
+.total{
+    display: flex;
+    justify-content: space-between;
+}
+#total-amt, #total-price{
+    font-weight: 600;
+}
+#free{
+    font-size: 15px;
+}
+.t-text{
+    font-size: 15px;
+    padding: 15px;
+}
+.c-products{
+    display: flex;
+    border: 2px solid rgb(170, 167, 167);
+    width: 90%;
+    margin: 10px;
+    padding: 15px;  
+    height: 25vh;
+}
+.c-image{
+    height: 100%;
+    width: 30%;
+}
+.c-image img{
+    height: 100%;
+    width: 100%;
+}
+.c-content{
+    width: 70%;
+}
+.c-name{
+    padding: 10px; 
+}
+.c-name input[type=number]
+{
+    margin-left: 10px;
+    width: 30px;
+}
+.close-btn{
+    float: right;
+    font-size: 20px;
+    font-weight: 200;
+}
+.order-btn{
+    width: 100%;
+    padding: 10px;
+   
+}
+.place{
+    color: white;
+    font-weight: 700;
+    background-color: rgb(212, 118, 132);
+    width: 100%;
+    font-size: 20px;
+    padding: 10px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+
+}
+.c-name label{
+    padding-right: 10px;
+}
+.c-name button{
+    font-size: 18px;
+   color: white;
+    background-color:rgb(199, 127, 163);
+}
+.c-name input{
+    text-align: center;
+    font-size: 18px;
+    width: 18px;
+}
+#discount, #free{
+    color: rgb(69, 153, 69);
+}

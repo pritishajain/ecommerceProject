@@ -1,0 +1,55 @@
+.footer-container {
+  margin-top: 80px;
+  width: 100%;
+  padding: 30px; 
+  background-color: rgb(218, 210, 210);
+  color: rgb(48, 31, 31);
+}
+.f-content {
+  display: flex;
+}
+.f-brands {
+  width: 25%;
+}
+.f-content li{
+  list-style: none;
+}
+.f-products {
+  width: 25%;
+}
+.f-contact {
+  width: 25%;
+}
+.f-company {
+  width: 25%;
+}
+.f-head {
+  font-size: 20px;
+  font-weight: 600;
+  padding: 20px 20px 20px 10px;
+}
+.f-child {
+  color: rgb(44, 43, 43);
+  font-size: 18px;
+  font-weight: 300;
+  padding: 10px;
+}
+.fa-facebook,
+.fa-youtube,
+.fa-instagram {
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+  font-size: 30px;
+  margin: 10px;
+  border-radius: 50%;
+}
+.fa-facebook {
+  background-color: blue;
+}
+.fa-instagram {
+  background-color: rgb(163, 60, 155);
+}
+.fa-youtube {
+  background-color: red;
+}

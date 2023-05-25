@@ -1,0 +1,47 @@
+.c-container{
+    padding: 10px;
+    margin: 40px auto 40px auto;
+    width: 50%;
+    background-color: rgb(252, 242, 228);
+    border:2px solid  #e2e1e196;
+}
+.input-fields{
+    padding: 20px;
+}
+.input-fields label{
+    text-transform: capitalize;
+    padding: 10px;
+    font-weight: 600;
+}
+.input-fields input{
+    padding: 5px;
+    border-color: aliceblue;
+    width: 40%;
+}
+.text{
+    padding: 20px;    
+}
+.text label{
+    text-transform: capitalize;
+    padding: 10px;
+    font-weight: 600;
+}
+.text textarea{
+    margin: 10px;
+    width: 50%;
+    height: 100px;
+}
+.submit-form{
+    width: 30%;
+    margin: auto;
+}
+.submit-form button{
+    padding: 10px;
+    width: 100%;
+    background-color: rgb(153, 86, 97);
+    border-radius: 10px;
+    border:2px solid #e2e1e196;
+    font-size: 20px;
+    font-weight: 600;
+    color: black;
+}

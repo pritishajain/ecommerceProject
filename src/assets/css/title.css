@@ -1,0 +1,47 @@
+.head {
+  display: flex;
+  padding: 10px;
+  height: 13vh;
+}
+.logo-home {
+  display: flex;
+  flex: 5;
+  justify-content: center;
+  align-items: center;
+}
+input[type="search"] {
+  width: 70%;
+  padding: 10px;
+}
+.search .fa-paper-plane {
+  font-size: 20px;
+  border: 2px solid rgb(122, 118, 118);
+  padding: 8px;
+}
+.search {
+  display: flex;
+  flex: 10;
+  align-items: center;
+  justify-content: center;
+}
+.profile {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  flex-direction: column;
+}
+.profile .fa-user {
+  font-size: 30px;
+}
+.profile .user {
+  font-size: 15px;
+}
+.profile:hover {
+  border-bottom: 2px solid red;
+}
+.profile .user .fa-caret-down{
+  padding: 2px;
+  font-size: 20px;
+}

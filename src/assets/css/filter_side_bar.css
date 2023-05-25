@@ -1,0 +1,48 @@
+.side-container h4{
+    margin: 0 0 10px 20px;
+    font-size: 20px;   
+    font-weight: 400;
+}
+.sidebar{
+    height: 100%;
+    width: 220px;
+    border: 2px solid rgb(216, 216, 216);
+}
+li{
+    list-style: none;
+}
+.side-parent{
+    margin: 0;
+    padding: 10px;
+    font-weight: 700;
+    font-size: 15px;
+}
+.side-child1{
+    padding: 10px;  
+}
+.side-child2{
+    padding:10px 0px 10px 10px; 
+}
+.filter-type{
+    padding: 10px;
+    margin: 10px 10px 10px 10px;
+}
+.side-child1 label{
+    font-size: 20px;
+    font-weight: 300;
+    color:  rgb(210,31,60);
+}
+.side-child2 label{
+    color: black;
+    font-size: 15px;
+    font-weight: 300;
+}
+.side-child1:hover{
+    background-color: rgb(186, 208, 228);
+}
+.side-child2:hover{
+    background-color: rgb(214, 180, 136);
+}
+.clink , .blink{
+    margin-right: 10px;
+}

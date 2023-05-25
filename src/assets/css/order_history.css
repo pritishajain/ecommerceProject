@@ -1,0 +1,53 @@
+.oh-container{
+    width: 100%;
+    margin-top: 20px;
+ 
+}
+.oh-content{
+    width: 70%;
+    margin: auto;
+    border:10px solid  #e2e1e196;
+}
+.order-title{
+    width: 95%;
+    margin: 20px;
+    border:2px solid rgb(204, 153, 160);
+}
+.oh-top{
+    padding: 10px;
+    font-size: 20px;
+    color: green;
+}
+.oh-middle{
+    background-color: #e2e1e196;
+    display: flex;
+    padding: 10px;
+}
+.oh-top .fa-check-circle{
+    font-size: 20px;
+    padding: 10px;
+}
+.oh-image img{
+    width: 100px;
+    height: 100px;  
+}
+.oh-data{
+    padding: 10px;
+}
+.oh-end{
+   width: 100%;
+   margin: 10px;
+
+}
+.oh-end button{
+    
+    width: 30%;
+    margin: auto;
+    padding: 10px;
+    background-color: rgb(219, 137, 150);
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 10px;
+    border-color: beige;
+}
