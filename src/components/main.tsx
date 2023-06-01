@@ -5,7 +5,6 @@ import { fetchSomeData } from "../redux/actions/fetch_action";
 import { ToastContainer } from 'react-toastify';
 import NavBar from "./navbar_section/navBar";
 import Title from "./title_section/title";
-import Footer from "./home_page/footer";
 import Loading from "./loading_comp/loading";
 import ErrorBoundary from "./error_boundary";
 import ErrorPage from "./error_page/error_page";

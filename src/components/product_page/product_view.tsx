@@ -53,7 +53,7 @@ const ProductView = (props: { text: string }) => {
   },[])
 
   useEffect(() => {
-    if ( categoryName!="" || subCategoryArray.length > 0 || brandCategoryArray.length > 0 || minPriceRange > 0) {
+    if ( categoryName!=="" || subCategoryArray.length > 0 || brandCategoryArray.length > 0 || minPriceRange > 0) {
       product1 = filterAccCategory(products);
       product2 = filterAccSubCategory(product1);
       product3 = filterAccBrand(product2);
@@ -70,7 +70,7 @@ const ProductView = (props: { text: string }) => {
   }, [ categoryName, subCategoryArray, brandCategoryArray, maxPriceRange, minPriceRange ]);
 
   const filterAccCategory = (products: IinfoDataType[]) => {
-    if (categoryName!='All Products') {
+    if (categoryName!=='All Products') {
       product1 = products.filter((value:IinfoDataType) => categoryName === value.productCategory)
       return product1;
     }
@@ -123,7 +123,7 @@ const ProductView = (props: { text: string }) => {
   return (
     <React.Fragment>
       <div className="display-products" data-testid="products">
-        {props.text != "searchPage" && (
+        {props.text !== "searchPage" && (
           <div className="category-container">
             <div
               className={
@@ -140,7 +140,7 @@ const ProductView = (props: { text: string }) => {
               }
               onClick={() => handleClicked("Kitchen", 1)}
             >
-              <img src={kitchen}></img>
+              <img src={kitchen} alt={Kitchen}></img>
               <h3>{Kitchen}</h3>
             </div>
             <div
@@ -149,7 +149,7 @@ const ProductView = (props: { text: string }) => {
               }
               onClick={() => handleClicked("Bathroom", 2)}
             >
-              <img src={bathroom}></img>
+              <img src={bathroom} alt={Bathroom}></img>
               <h3>{Bathroom}</h3>
             </div>
             <div
@@ -158,7 +158,7 @@ const ProductView = (props: { text: string }) => {
               }
               onClick={() => handleClicked("Livingroom", 3)}
             >
-              <img src={livingRoom}></img>
+              <img src={livingRoom} alt={LivingRoom}></img>
               <h3>{LivingRoom}</h3>
             </div>
             <div
@@ -167,7 +167,7 @@ const ProductView = (props: { text: string }) => {
               }
               onClick={() => handleClicked("Outdoor", 4)}
             >
-              <img src={outdoor}></img>
+              <img src={outdoor} alt={Outdoor}></img>
               <h3>{Outdoor}</h3>
             </div>
           </div>
