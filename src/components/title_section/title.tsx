@@ -70,6 +70,8 @@ const Title = () => {
     ) {
       return allProducts;
     }
+    // eslint-disable-next-line
+    return;
   });
 
   const showList = () => {
