@@ -47,7 +47,7 @@ const Title = () => {
         dispatch(emptyData());
       }
     });
-  }, []);
+  }, [dispatch]);
 
   const userData = useSelector(
     (state: IuserState) => state.userDataReducer.userData

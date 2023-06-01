@@ -50,18 +50,15 @@ const ProductView = (props: { text: string }) => {
 
   useEffect(()=>{
     dispatch(addCategory("All Products"))
-  },[])
+  },[dispatch])
 
   useEffect(() => {
     if ( categoryName!=="" || subCategoryArray.length > 0 || brandCategoryArray.length > 0 || minPriceRange > 0) {
       product1 = filterAccCategory(products);
       product2 = filterAccSubCategory(product1);
       product3 = filterAccBrand(product2);
-
-      if (minPriceRange > 0) {
-        product3 = filterAccPrice(product3);
-      }
-
+      product3 = filterAccPrice(product3);
+      
       dispatch(storeFilteredProducts(product3));
       
     } else {
@@ -80,7 +77,7 @@ const ProductView = (props: { text: string }) => {
   const filterAccSubCategory = (product1: IinfoDataType[]) => {
     if (subCategoryArray.length > 0) {
       subCategoryArray.map((element:string) => {
-        product2 = [
+        return product2 = [
           ...product2,
           ...product1.filter((value:IinfoDataType) => element === value.productSubCategory),
         ];
@@ -93,7 +90,7 @@ const ProductView = (props: { text: string }) => {
   const filterAccBrand = (product2: IinfoDataType[]) => {
     if (brandCategoryArray.length > 0) {
       brandCategoryArray.map((element:string) => {
-        product3 = [
+        return product3 = [
           ...product3,
           ...product2.filter((value:IinfoDataType) => element === value.brand),
         ];

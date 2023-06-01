@@ -20,8 +20,8 @@ const initialState: filterState = {
   category: "All Products",
   subCategory: [],
   brand: [],
-  maxRange: 0,
-  minRange: 0
+  maxRange: 10000,
+  minRange: 100
 };
 
 const filterPropertyReducer = (
@@ -44,13 +44,7 @@ const filterPropertyReducer = (
         ...state,
         brand: [...state.brand, action.payload],
       };
-    // case REMOVE_CATEGORY:
-    //   return {
-    //     ...state,
-    //     category: [...state.category].filter(
-    //       (value:string) => value !== action.payload
-    //     ),
-    //   };
+
     case REMOVE_SUB_CATEGORY:
       return {
         ...state,

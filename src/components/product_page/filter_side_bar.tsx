@@ -8,7 +8,7 @@ import "../../assets/css/filter_side_bar.css";
 
 const FilterSideBar = () => {
 
-  const [range, setRange] = useState<[number, number]>([5, 30]);
+  const [range, setRange] = useState<[number, number]>([100, 10000]);
   const dispatch = useDispatch();
 
 
@@ -93,11 +93,12 @@ const FilterSideBar = () => {
           <div style={{ width: "150px", padding: "20px" }}>
             <Slider
               value={range}
-              max={1000}
+              max={10000}
+              min={100}
               onChange={handleChanges}
               valueLabelDisplay="auto"
             />
-            ${range[0]} - ${range[1]}
+            {range[0]} - {range[1]}
           </div>
         </div>
 

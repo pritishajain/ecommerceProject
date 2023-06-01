@@ -32,7 +32,7 @@ const Main = () => {
 
   useEffect(() => {
     dispatch(fetchSomeData());
-  }, []);
+  }, [dispatch]);
   
   
   return (
