@@ -4,7 +4,6 @@ import store from "../../redux/store";
 import { act, fireEvent, render,screen, waitFor } from "@testing-library/react";
 import Wishlist from "../../components/wishlist_page/wishlist";
 import { IinfoDataType } from "../../interface/data_interface";
-import NavBar from "../../components/navbar_section/navBar";
 import { ADD_TO_WISH_LIST, IS_LOGGED_IN, EMPTY_DATA} from "../../redux/action_constants";
 
 describe("WishList",()=>{
@@ -25,7 +24,6 @@ describe("WishList",()=>{
         render(
           <BrowserRouter>
             <Provider store={store}>
-                <NavBar/>
                <Wishlist /> 
             </Provider>
           </BrowserRouter>

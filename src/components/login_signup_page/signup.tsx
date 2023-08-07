@@ -122,7 +122,7 @@ const SignUp = () => {
   return (
     <React.Fragment>
       <div className="box">
-        <div className="inner-box">
+        <div className="inner-box1">
           <div className="image">
             <img src={profile} alt="profile" className="img-show-1" />
           </div>

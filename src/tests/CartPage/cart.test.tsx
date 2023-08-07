@@ -3,7 +3,6 @@ import { Provider } from "react-redux";
 import store from "../../redux/store";
 import { act, fireEvent, render,screen, waitFor } from "@testing-library/react";
 import { IinfoDataType } from "../../interface/data_interface";
-import NavBar from "../../components/navbar_section/navBar";
 import Cart from "../../components/cart_page/cart";
 import { ADD_TO_CART, EMPTY_DATA, IS_LOGGED_IN} from "../../redux/action_constants";
 
@@ -39,7 +38,6 @@ describe("Cart",()=>{
         render(
           <BrowserRouter>
             <Provider store={store}>
-               <NavBar/>
                <Cart /> 
             </Provider>
           </BrowserRouter>

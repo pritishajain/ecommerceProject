@@ -1,47 +1,152 @@
 .head {
   display: flex;
-  padding: 10px;
   height: 13vh;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  background-color: white;
+}
+.menu-icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  font-size: 20px;
+  padding: 8px;
 }
 .logo-home {
   display: flex;
   flex: 5;
-  justify-content: center;
   align-items: center;
+}
+.logo-home img{
+  height: 60px;
+  width: 250px;
 }
 input[type="search"] {
   width: 70%;
   padding: 10px;
 }
-.search .fa-paper-plane {
+
+ .fa-paper-plane {
   font-size: 20px;
   border: 2px solid rgb(122, 118, 118);
   padding: 8px;
 }
+
 .search {
   display: flex;
   flex: 10;
   align-items: center;
   justify-content: center;
 }
+.search-icon{
+  display: none;
+}
 .profile {
-  width: 100px;
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
   flex-direction: column;
 }
+
 .profile .fa-user {
-  font-size: 30px;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
 }
+
 .profile .user {
-  font-size: 15px;
+  font-size: 13px;
 }
 .profile:hover {
-  border-bottom: 2px solid red;
+  cursor: pointer;
 }
-.profile .user .fa-caret-down{
-  padding: 2px;
+.icons {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 20px;
+}
+.title-icons{
+  padding: 10px;
+}
+.icons .user{
+  font-size: 13px;
+  text-decoration: none;
+  color: black; 
+  
+}
+.icons .fa-heart-o , .icons .fa-shopping-cart{
+  display: flex;
+  justify-content: center;
+  color: black;
+  font-size: 20px;
+}
+.link{
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.fa-heart-o:hover {
+  color: red;
+}
+.icons .fa-shopping-cart:hover {
+  color: blue;
+}
+
+@media (max-width: 700px) {
+  .logo-home {
+    flex: 8;
+    justify-content: left;
+  }
+
+  .profile {
+    flex: 1;
+  }
+
+  .search {
+    display: none;
+  }
+  .search-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    padding: 8px;
+  }
+  .logo-home img{
+    height: 65px;
+    width: 200px;
+  }
+
+}
+@media (max-width: 500px) {
+  .profile{
+    display: none;
+  }
+  .icons .user{
+    display: none;
+  }
+  .icons .fa-heart-o , .icons .fa-shopping-cart{
+    display: flex;
+    justify-content: center;
+    padding: 8px;
+  }
+  .logo-home img{
+    width: 150px;
+    height: 50px;
+  }
+  .closeBtn{
+    align-items:start;
+    padding: 0;
+  }
 }

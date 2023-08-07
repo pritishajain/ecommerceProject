@@ -3,7 +3,6 @@ import { Routes, Route } from "react-router";
 import { useDispatch } from "react-redux";
 import { fetchSomeData } from "../redux/actions/fetch_action";
 import { ToastContainer } from 'react-toastify';
-import NavBar from "./navbar_section/navBar";
 import Title from "./title_section/title";
 import Loading from "./loading_comp/loading";
 import ErrorBoundary from "./error_boundary";
@@ -38,7 +37,6 @@ const Main = () => {
   return (
     <React.Fragment>
       <Title />
-      <NavBar />
       <Suspense fallback={<Loading />}>
         <Routes>
           <Route path="/" element={<ErrorBoundary> <Home /> </ErrorBoundary>} />

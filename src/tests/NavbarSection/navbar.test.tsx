@@ -1,5 +1,4 @@
 import { BrowserRouter } from "react-router-dom";
-import NavBar from "../../components/navbar_section/navBar";
 import { Provider } from "react-redux";
 import store from "../../redux/store";
 import { fireEvent, render,screen } from "@testing-library/react";
@@ -10,7 +9,6 @@ describe("Navbar",()=>{
         render(
           <BrowserRouter>
             <Provider store={store}>
-              <NavBar />
             </Provider>
           </BrowserRouter>
         );

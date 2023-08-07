@@ -2,6 +2,7 @@
   position: absolute;
   width: 100%;
   overflow-x: hidden;
+  /* padding: 20px; */
 }
 .image-box {
   height: 90vh;
@@ -31,82 +32,122 @@
   margin-bottom: 100px;
 }
 .lower h1 {
-  padding: 20px;
+  padding: 10px;
 }
 .lower h1 .heading {
   font-weight: 700;
-  padding: 20px;
-  background-color: rgb(180, 190, 190);
+  padding: 10px;
+  color: rgb(48, 18, 133);
+ 
 }
 .lhead {
-    position: relative;
+  position: relative;
   display: flex;
   width: 100%;
   overflow-x: hidden;
 }
 .lcontent1{
     width: 50%;
+    text-align: center;
+    
 }
 .lcontent2{
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
     width: 50%;
+    text-align: center;
 }
-.limage{
+.limage-left , .limage-right{
+  width: 90%;
+  height: 300px;
+  box-shadow: 0 4px 8px 0px rgba(0, 0, 0, 0.2);
+}
+
+.limage-right{
   opacity: 1;
   transition: 0.5s ease;
   backface-visibility: hidden;
-  width: 100%;
-  height: 400px;
-}
-.latest-content-1{
-  transition: 0.5s ease;
-  opacity: 0;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  text-align: center;
-  transition: 0.5s;
-  position: absolute;
-  top: 40%;
-  left: 25%;
 }
 .latest-content-2{
-    transition: 0.5s ease;
-    opacity: 0;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    text-align: center;
-    transition: 0.5s;
     position: absolute;
-    top: 40%;
-    left: 75%;
+    top: 0;
+    left: 0;
+    color: #fff;
+    -webkit-transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    -o-transition: all 300ms ease-out;
+    -ms-transition: all 300ms ease-out;
+    transition: all 300ms ease-out;
+    opacity: 0;
+    width: 100%;
+    padding: 100px 10px; 
   }
-.lcontent1:hover .limage {
-  opacity: 0.8;
-  transform: scale(0.9);
-}
-.lcontent1:hover .latest-content-1{
-  opacity: 1;
-}
-.lcontent2:hover .limage {
-    opacity: 0.8;
+
+.lcontent2:hover .limage-right {
+    opacity: 0.5;
     transform: scale(0.9);
   }
   .lcontent2:hover .latest-content-2{
+    opacity: 0.8;
+  }
+  .latest-content-2:hover .latest-child ,  .latest-content-2:hover .latest-head{
     opacity: 1;
+    transform: translateY(0px);
+    -webkit-transform: translateY(0px);
   }
 .latest-head {
-  font-size: 50px;
+  font-size: 20px;
   font-weight: 700;
   margin: 0;
-  color: rgb(255, 255, 255);
+  color: black
 }
 .latest-child {
+  margin: 20px;
   padding: 10px;
   font-size: 20px;
   font-weight: 500;
   background-color: black;
   color: white;
 }
+.latest-child , .latest-head{
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
+  -ms-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+  transform: translateY(30px);
+  -webkit-transform: translateY(30px);
+}
 .latest-child:hover{
     background-color: grey;
 }
+@media (max-width: 700px) {
+  .lhead{
+    flex-direction: column;
+  }
+  .lcontent1, .lcontent2{
+    width: 100%;
+  }
+  .limage-left, .limage-right{
+    width: 90%;
+    padding: 20px;
+  }
+}
 
+@media (max-width: 450px){
+  .lower h1 .heading {
+    font-weight: 500;
+    font-size: 30px;
+  }
+  .limage-left, .limage-right{
+    width: 80%;
+    height: 200px;
+  }
+  .latest-head , .latest-child{
+    font-size: 15px;
+  }
+  .latest-child{
+    margin: 10px;
+  }
+}
