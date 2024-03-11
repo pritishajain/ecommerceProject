@@ -4,26 +4,26 @@ import { useNavigate } from "react-router";
 import { IinfoDataType } from "../../interface/data_interface";
 import RemoveItem from "./remove_item";
 import { emptyCart, updateQuantity } from "../../redux/actions/fetch_action";
-import { IuserState } from "../../interface/product_reducer_interface";
+import { IuserState } from "../../interface/reducer_interface";
 import { collection, doc, getDocs, query, updateDoc, where } from "firebase/firestore";
 import { db } from "../../firebase";
-import { Qty, Increase, Decrease, TotalMRP, TotalAmount, PriceDetails, ConvenienceFee, DiscountOnMRP, PlaceOrder, Free} from "../../assets/constants/constant";
+import { Qty, Increase, Decrease, TotalMRP, TotalAmount, PriceDetails, ConvenienceFee, DiscountOnMRP, PlaceOrder, Free } from "../../assets/constants/constant";
 import { toast } from "react-toastify";
 import "../../assets/css/cart.css";
 import 'react-toastify/dist/ReactToastify.css';
 
-  const dataInfo = {
-    id: 0,
-    imageUrl: "",
-    productName: "",
-    productPrice: 0,
-    productSubCategory: "",
-    productCategory: "",
-    productDescription: "",
-    brand: "",
-    qty:1
-  };
-  
+const dataInfo = {
+  id: 0,
+  imageUrl: "",
+  productName: "",
+  productPrice: 0,
+  productSubCategory: "",
+  productCategory: "",
+  productDescription: "",
+  brand: "",
+  qty: 1
+};
+
 const CartContent = () => {
 
   const [popUp, setPopUp] = useState<boolean>(false);
@@ -36,23 +36,21 @@ const CartContent = () => {
     (state: IuserState) => state.userDataReducer.userData
   );
 
-  const updateProductQuantity = async (itemId: number,type:string) => {
+  const updateProductQuantity = async (itemId: number, type: string) => {
 
     let index = userData.cart.findIndex((i: IinfoDataType) => i.id === itemId);
 
-    let updatedCart:IinfoDataType[];
+    let updatedCart: IinfoDataType[];
 
-    if(type === "increase")
-    {
-       updatedCart = [
+    if (type === "increase") {
+      updatedCart = [
         ...userData.cart.slice(0, index),
         { ...userData.cart[index], qty: userData.cart[index].qty + 1 },
         ...userData.cart.slice(index + 1),
       ];
     }
-    else{
-      if(userData.cart[index].qty<=1)
-      {
+    else {
+      if (userData.cart[index].qty <= 1) {
         toast.error("Quantity cannot be less than 1");
         return
       }
@@ -77,7 +75,7 @@ const CartContent = () => {
     updateDoc(docRef, {
       cart: updatedCart,
     });
-    
+
     dispatch(updateQuantity(updatedCart));
   };
 
@@ -107,9 +105,9 @@ const CartContent = () => {
 
           <div className="c-name">
             <label>{Qty}</label>
-            <button onClick={() => updateProductQuantity(value.id,"increase")} >{Increase}</button>
+            <button onClick={() => updateProductQuantity(value.id, "increase")} >{Increase}</button>
             <input value={value.qty}></input>
-            <button onClick={() => updateProductQuantity(value.id,"decrease")} >{Decrease}</button>
+            <button onClick={() => updateProductQuantity(value.id, "decrease")} >{Decrease}</button>
           </div>
 
           <div className="c-name">

@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import FilterSideBar from "./filter_side_bar";
 import ProductTile from "../common/product_tile";
-import { addCategory,storeFilteredProducts } from "../../redux/actions/fetch_action";
-import { Istate } from "../../interface/product_reducer_interface";
+import { addCategory, storeFilteredProducts } from "../../redux/actions/fetch_action";
+import { Istate } from "../../interface/reducer_interface";
 import { filterState } from "../../redux/reducers/filter_property_reducer";
 import { IinfoDataType } from "../../interface/data_interface";
 import kitchen from "../../assets/images/kitchen.jpg";
@@ -25,7 +25,7 @@ const ProductView = (props: { text: string }) => {
   let product3: IinfoDataType[] = [];
   let product4: IinfoDataType[] = [];
 
-  const [active,setActive] = useState<number>(0)
+  const [active, setActive] = useState<number>(0)
 
   const dispatch = useDispatch();
 
@@ -34,7 +34,7 @@ const ProductView = (props: { text: string }) => {
 
   const categoryName = useSelector(
     (state: filteredState) => state.filterPropertyReducer.category
-  );  
+  );
   const subCategoryArray = useSelector(
     (state: filteredState) => state.filterPropertyReducer.subCategory
   );
@@ -48,27 +48,27 @@ const ProductView = (props: { text: string }) => {
     (state: filteredState) => state.filterPropertyReducer.minRange
   );
 
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(addCategory("All Products"))
-  },[dispatch])
+  }, [dispatch])
 
   useEffect(() => {
-    if ( categoryName!=="" || subCategoryArray.length > 0 || brandCategoryArray.length > 0 || minPriceRange > 0) {
+    if (categoryName !== "" || subCategoryArray.length > 0 || brandCategoryArray.length > 0 || minPriceRange > 0) {
       product1 = filterAccCategory(products);
       product2 = filterAccSubCategory(product1);
       product3 = filterAccBrand(product2);
       product3 = filterAccPrice(product3);
-      
+
       dispatch(storeFilteredProducts(product3));
-      
+
     } else {
       dispatch(storeFilteredProducts(products));
     }
-  }, [ categoryName, subCategoryArray, brandCategoryArray, maxPriceRange, minPriceRange ]);
+  }, [categoryName, subCategoryArray, brandCategoryArray, maxPriceRange, minPriceRange]);
 
   const filterAccCategory = (products: IinfoDataType[]) => {
-    if (categoryName!=='All Products') {
-      product1 = products.filter((value:IinfoDataType) => categoryName === value.productCategory)
+    if (categoryName !== 'All Products') {
+      product1 = products.filter((value: IinfoDataType) => categoryName === value.productCategory)
       return product1;
     }
     return products;
@@ -76,10 +76,10 @@ const ProductView = (props: { text: string }) => {
 
   const filterAccSubCategory = (product1: IinfoDataType[]) => {
     if (subCategoryArray.length > 0) {
-      subCategoryArray.map((element:string) => {
+      subCategoryArray.map((element: string) => {
         return product2 = [
           ...product2,
-          ...product1.filter((value:IinfoDataType) => element === value.productSubCategory),
+          ...product1.filter((value: IinfoDataType) => element === value.productSubCategory),
         ];
       });
       return product2;
@@ -89,10 +89,10 @@ const ProductView = (props: { text: string }) => {
 
   const filterAccBrand = (product2: IinfoDataType[]) => {
     if (brandCategoryArray.length > 0) {
-      brandCategoryArray.map((element:string) => {
+      brandCategoryArray.map((element: string) => {
         return product3 = [
           ...product3,
-          ...product2.filter((value:IinfoDataType) => element === value.brand),
+          ...product2.filter((value: IinfoDataType) => element === value.brand),
         ];
       });
       return product3;
@@ -104,7 +104,7 @@ const ProductView = (props: { text: string }) => {
     product4 = [
       ...product4,
       ...product3.filter(
-        (value:IinfoDataType) =>
+        (value: IinfoDataType) =>
           value.productPrice >= minPriceRange &&
           value.productPrice <= maxPriceRange
       ),
@@ -112,8 +112,8 @@ const ProductView = (props: { text: string }) => {
     return product4;
   };
 
-  const handleClicked = (name:string,index:number) => {
-    dispatch(addCategory(name))  ;
+  const handleClicked = (name: string, index: number) => {
+    dispatch(addCategory(name));
     setActive(index);
   };
 
@@ -195,8 +195,8 @@ const ProductView = (props: { text: string }) => {
               <ProductTile list={filterProducts} />
             </div>
           </div>
-        )} 
-          {/* <div className="display-type">
+        )}
+        {/* <div className="display-type">
             <div className="side">
               <FilterSideBar />
             </div>
@@ -204,7 +204,7 @@ const ProductView = (props: { text: string }) => {
               <ProductTile list={filterProducts} />
             </div>
           </div> */}
-        
+
       </div>
     </React.Fragment>
   );

@@ -1,9 +1,6 @@
 import React from "react";
-import latestT from "../../assets/images/latestT.jpg";
-import latestT1 from "../../assets/images/latestT1.jpg";
 import prince from "../../assets/images/prince.jpg";
 import princePipes from "../../assets/images/princePipes.jpg";
-import { LatesTilesCollection, DiscountOffer, ViewDetails } from "../../assets/constants/constant";
 
 const LatestCollection = () => {
   return (

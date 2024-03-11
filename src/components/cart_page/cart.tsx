@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import "../../assets/css/cart.css";
 import CartContent from "./cart_content";
 import EmptyCart from "./empty_cart";
-import { IuserState } from "../../interface/product_reducer_interface";
+import { IuserState } from "../../interface/reducer_interface";
 
 const Cart = () => {
   const userData = useSelector(

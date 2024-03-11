@@ -8,18 +8,19 @@ import Loading from "./loading_comp/loading";
 import ErrorBoundary from "./error_boundary";
 import ErrorPage from "./error_page/error_page";
 
-const wait=(time: number)=>{
-  return new Promise(resolve=>{
-  setTimeout(resolve,time);
+const wait = (time: number) => {
+  return new Promise(resolve => {
+    setTimeout(resolve, time);
   })
 }
 
 const Home = lazy(() => import('./home_page/home'));
 const SignUp = lazy(() => import('./login_signup_page/signup'));
 const Login = lazy(() => import('./login_signup_page/login'));
-const Products = lazy(() =>wait(1000).then(() => import("./product_page/products")));
-const Wishlist = lazy(() =>  wait(1000).then(() =>import('./wishlist_page/wishlist')));
-const Cart = lazy(() =>  wait(1000).then(() =>import('./cart_page/cart')));
+const ForgotPassword = lazy(() => import('./login_signup_page/forgotPassword'));
+const Products = lazy(() => wait(1000).then(() => import("./product_page/products")));
+const Wishlist = lazy(() => wait(1000).then(() => import('./wishlist_page/wishlist')));
+const Cart = lazy(() => wait(1000).then(() => import('./cart_page/cart')));
 const Contact = lazy(() => import('./contact_page/contact'));
 const Account = lazy(() => import('./account_page/account'));
 const OrderConfirmation = lazy(() => import('./order_page/order_confirmation'));
@@ -31,9 +32,10 @@ const Main = () => {
 
   useEffect(() => {
     dispatch(fetchSomeData());
-  }, [dispatch]);
-  
-  
+    // eslint-disable-next-line
+  }, []);
+
+
   return (
     <React.Fragment>
       <Title />
@@ -42,7 +44,8 @@ const Main = () => {
           <Route path="/" element={<ErrorBoundary> <Home /> </ErrorBoundary>} />
           <Route path="signup" element={<ErrorBoundary> <SignUp /> </ErrorBoundary>} />
           <Route path="login" element={<ErrorBoundary> <Login /> </ErrorBoundary>} />
-          <Route path="products" element={ <ErrorBoundary> <Products /> </ErrorBoundary>} />
+          <Route path="forgot-password" element={<ErrorBoundary> <ForgotPassword /></ErrorBoundary>} />
+          <Route path="products" element={<ErrorBoundary> <Products /> </ErrorBoundary>} />
           <Route path="search/:keyword" element={<ErrorBoundary> <Products /> </ErrorBoundary>} />
           <Route path="account" element={<ErrorBoundary> <Account /> </ErrorBoundary>} />
           <Route path="wishlist" element={<ErrorBoundary> <Wishlist /> </ErrorBoundary>} />
@@ -50,10 +53,10 @@ const Main = () => {
           <Route path="contact" element={<ErrorBoundary> <Contact /> </ErrorBoundary>} />
           <Route path="orderconfirmation" element={<ErrorBoundary> <OrderConfirmation /> </ErrorBoundary>} />
           <Route path="orderhistory" element={<ErrorBoundary> <OrderHistory /> </ErrorBoundary>} />
-          <Route path="*" element={<ErrorPage/>} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </Suspense>
-      
+
 
       <ToastContainer autoClose={1000} />
     </React.Fragment>

@@ -7,3 +7,11 @@ export interface IuserInfo{
     wishList:IinfoDataType[],
     orderHistory:IinfoDataType[]
 }
+
+export interface Iauthuser{
+    token: string,
+    user: {
+        name:string,
+        email:string
+    }
+}

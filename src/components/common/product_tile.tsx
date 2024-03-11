@@ -5,13 +5,13 @@ import ProductDescription from "./product_description";
 import { IinfoDataType } from "../../interface/data_interface";
 import { addToCart, addToWishList, removeFromWishList } from "../../redux/actions/fetch_action";
 import { collection, doc, getDocs, query, updateDoc, where } from "firebase/firestore";
-import {db} from "../../firebase";
+import { db } from "../../firebase";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import { IuserState } from "../../interface/product_reducer_interface";
+import { IuserState } from "../../interface/reducer_interface";
 import Pagination from "./pagination";
 
- export const dataInfo = {
+export const dataInfo = {
   id: 0,
   imageUrl: "",
   productName: "",
@@ -20,12 +20,12 @@ import Pagination from "./pagination";
   productCategory: "",
   productDescription: "",
   brand: "",
-  qty:1
+  qty: 1
 };
 
 const ProductTile = (props: { list: IinfoDataType[] }) => {
 
-  
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [popUp, setPopUp] = useState<boolean>(false);
@@ -43,17 +43,16 @@ const ProductTile = (props: { list: IinfoDataType[] }) => {
     return userData.wishList.some((product) => product.id === id);
   };
 
-  interface IsavedData{
-    data:IinfoDataType,
-    type:string
+  interface IsavedData {
+    data: IinfoDataType,
+    type: string
   }
   const addProductToWishList = async (value: IinfoDataType) => {
 
-    if(!isLogIn)
-    {
-      const userSavedData :IsavedData = {
-        data:value,
-        type:"wishList"
+    if (!isLogIn) {
+      const userSavedData: IsavedData = {
+        data: value,
+        type: "wishList"
       }
       localStorage.setItem('userData', JSON.stringify(userSavedData))
       navigate("/login")
@@ -73,9 +72,9 @@ const ProductTile = (props: { list: IinfoDataType[] }) => {
 
     if (presentInWishList(value.id)) {
       toast.info("Removed From Wishlist")
-      const updatedWishlist = userData.wishList.filter((product:IinfoDataType) => product.id !== value.id);
+      const updatedWishlist = userData.wishList.filter((product: IinfoDataType) => product.id !== value.id);
 
-      updateDoc(docRef, {wishList: updatedWishlist,});
+      updateDoc(docRef, { wishList: updatedWishlist, });
 
       dispatch(removeFromWishList(value.id));
     } else {
@@ -94,11 +93,10 @@ const ProductTile = (props: { list: IinfoDataType[] }) => {
 
   const addProductToCart = async (value: IinfoDataType) => {
 
-    if(!isLogIn)
-    {
-      const userSavedData :IsavedData = {
-        data:value,
-        type:"cart"
+    if (!isLogIn) {
+      const userSavedData: IsavedData = {
+        data: value,
+        type: "cart"
       }
       localStorage.setItem('userData', JSON.stringify(userSavedData))
       navigate("/login")
@@ -134,7 +132,7 @@ const ProductTile = (props: { list: IinfoDataType[] }) => {
         cart: [...userData.cart, value],
       });
       dispatch(addToCart(value));
-    } 
+    }
   };
 
   const displayProductTile = (value: IinfoDataType) => {
@@ -144,9 +142,8 @@ const ProductTile = (props: { list: IinfoDataType[] }) => {
           <img src={value.imageUrl} alt="kfaucets" className="pimage"></img>
           <div className="picons" data-testid="picons">
             <i data-testid="wishlisticon"
-              className={`icon fa ${
-                presentInWishList(value.id) ? "fa-heart" : "fa-heart-o"
-              }` }
+              className={`icon fa ${presentInWishList(value.id) ? "fa-heart" : "fa-heart-o"
+                }`}
               onClick={() => addProductToWishList(value)}
             ></i>
             <i
@@ -156,8 +153,7 @@ const ProductTile = (props: { list: IinfoDataType[] }) => {
                 setPopUp(true);
               }}
             ></i>
-            <i data-testid="cartIcon" className={`icon  ${
-                presentInCart(value.id) ? "fa fa-shopping-cart" : "fa fa-cart-plus"
+            <i data-testid="cartIcon" className={`icon  ${presentInCart(value.id) ? "fa fa-shopping-cart" : "fa fa-cart-plus"
               }`} onClick={() => addProductToCart(value)}></i>
           </div>
         </div>
@@ -173,14 +169,14 @@ const ProductTile = (props: { list: IinfoDataType[] }) => {
   };
 
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const productsPerPage= 12;
+  const productsPerPage = 12;
 
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
 
   const currentProducts = props.list.slice(indexOfFirstProduct, indexOfLastProduct);
 
-   const paginate = (pageNumber:number) => setCurrentPage(pageNumber);
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
   return (
     <React.Fragment>

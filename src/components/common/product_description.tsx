@@ -3,12 +3,12 @@ import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { IinfoDataType } from "../../interface/data_interface";
-import { AddToCart, AddToWishList,  Wishlisted, AddedToCart} from "../../assets/constants/constant";
+import { AddToCart, AddToWishList, Wishlisted, AddedToCart } from "../../assets/constants/constant";
 import "../../assets/css/product_description.css";
-import { collection, doc, getDocs, query, updateDoc,where } from "firebase/firestore";
+import { collection, doc, getDocs, query, updateDoc, where } from "firebase/firestore";
 import { db } from "../../firebase";
 import { addToCart, addToWishList, removeFromWishList } from "../../redux/actions/fetch_action";
-import { IuserState } from "../../interface/product_reducer_interface";
+import { IuserState } from "../../interface/reducer_interface";
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -53,14 +53,14 @@ const ProductDescription = (props: IproductProps) => {
 
       toast.info("Removed From Wishlist")
       const updatedWishlist = userData.wishList.filter(
-        (product:IinfoDataType) => product.id !== value.id
+        (product: IinfoDataType) => product.id !== value.id
       );
       updateDoc(docRef, {
         wishList: updatedWishlist,
       });
-      
+
       dispatch(removeFromWishList(value.id));
-    } 
+    }
     else {
       toast.success("Successfully added to wishlist")
       updateDoc(docRef, {
@@ -94,7 +94,7 @@ const ProductDescription = (props: IproductProps) => {
 
     if (presentInCart(value.id)) {
       toast.error("Already added in cart")
-    } 
+    }
     else {
       toast.success("Successfully added to cart")
       updateDoc(docRef, {
@@ -153,7 +153,7 @@ const ProductDescription = (props: IproductProps) => {
                   onClick={() => addProductToWishList(props.itemData)}
                 >
                   {presentInWishList(props.itemData.id) ? (<span>{Wishlisted}</span>) : (<span>{AddToWishList}</span>)}
-                  <i className={`fa ${presentInWishList(props.itemData.id)? "fa-heart": "fa-heart-o"}`}></i>
+                  <i className={`fa ${presentInWishList(props.itemData.id) ? "fa-heart" : "fa-heart-o"}`}></i>
                 </button>
               </div>
             </div>

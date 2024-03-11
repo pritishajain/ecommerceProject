@@ -5,7 +5,7 @@ import "../../assets/css/remove_item.css";
 import { removeAddToWishList, removeFromCart } from "../../redux/actions/fetch_action";
 import { collection, doc, getDocs, query, updateDoc, where } from "firebase/firestore";
 import { db } from "../../firebase";
-import { IuserState } from "../../interface/product_reducer_interface";
+import { IuserState } from "../../interface/reducer_interface";
 import { MoveFromBag, MoveToWishlist, ConfirmationToMoveFromBag, RemoveFromBag } from "../../assets/constants/constant";
 
 interface IremoveProps {

@@ -74,11 +74,11 @@ const LogoutDropDownMenu = (props: { anchorEl: null | HTMLElement, handleMenuClo
         </MenuItem>
 
         <MenuItem onClick={props.handleMenuClose}>
-          <Button href="/wishlist" className="p-link" sx={buttonStyle}><li>{WishList}</li></Button>
+          <Button href="/wishlist" className="p-link" sx={buttonStyle}>{WishList}</Button>
         </MenuItem>
 
         <MenuItem onClick={props.handleMenuClose}>
-          <Button href="/cart" className="p-link" sx={buttonStyle}><li>{Cart}</li></Button>
+          <Button href="/cart" className="p-link" sx={buttonStyle}>{Cart}</Button>
         </MenuItem>
 
       </Menu>

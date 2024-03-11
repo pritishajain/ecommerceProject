@@ -50,7 +50,7 @@ const LoginedDropDownMenu = (props: { handleLogOut: () => void, name: string, an
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
         <MenuItem onClick={props.handleMenuClose} >
-          <Button href={"/"} className="acc-link" sx={{color:'black' ,fontSize:'15px',textTransform: 'none',fontWeight:'600'}}>{Welcome} {props.name}</Button>
+          <Button href={"/"} className="acc-link" sx={{color:'black' ,fontSize:'15px',textTransform: 'none',fontWeight:'600'}}>{Welcome} {props.name.toUpperCase()}</Button>
         </MenuItem>
 
         <MenuItem onClick={props.handleMenuClose} >

@@ -1,6 +1,6 @@
 import React from "react"
 import { useDispatch, useSelector } from "react-redux";
-import { IuserState } from "../../interface/product_reducer_interface";
+import { IuserState } from "../../interface/reducer_interface";
 import { IinfoDataType } from "../../interface/data_interface";
 import "../../assets/css/order_history.css";
 import { addToCart } from "../../redux/actions/fetch_action";
@@ -43,25 +43,25 @@ const OrderHistory = () => {
     dispatch(addToCart(data));
   };
 
-      const displayOrdersTile=(data:IinfoDataType)=>{
-        return(
-           
-            <div className="order-title">
-                <div className="oh-top"> <i className="fa fa-check-circle"></i>{Delivered}</div>
-                <div className="oh-middle">
-                    <div className="oh-image"><img src={data.imageUrl} alt={data.productName}></img></div>
-                    <div className="oh-data">
-                        <p>{data.productName}</p>
-                        <p>{data.productCategory}:{data.productSubCategory}</p>
-                        </div>
-                </div>
-                <div className="oh-end">
-                    <button onClick={()=>handleClick(data)} >{BuyAgain}</button>
-                </div>
-            </div>
-        )
-      }
-      
+  const displayOrdersTile = (data: IinfoDataType) => {
+    return (
+
+      <div className="order-title">
+        <div className="oh-top"> <i className="fa fa-check-circle"></i>{Delivered}</div>
+        <div className="oh-middle">
+          <div className="oh-image"><img src={data.imageUrl} alt={data.productName}></img></div>
+          <div className="oh-data">
+            <p>{data.productName}</p>
+            <p>{data.productCategory}:{data.productSubCategory}</p>
+          </div>
+        </div>
+        <div className="oh-end">
+          <button onClick={() => handleClick(data)} >{BuyAgain}</button>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <React.Fragment>
       {!isLogIn ? (
@@ -81,7 +81,7 @@ const OrderHistory = () => {
       ) : (
         <EmptyOrderHistory />
       )}
-      <Footer/>
+      <Footer />
     </React.Fragment>
   );
 };

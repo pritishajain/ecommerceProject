@@ -3,4 +3,6 @@ export interface IsignUpValue {
   email: string;
   password: string;
   confirmPassword: string;
+  common: string;
+  answer: string;
 }

@@ -1,26 +1,24 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { loginUser } from "../../services/serviceApiCalls";
-import { IloginValue } from "../../interface/login_interface";
-import { MssLogo, WelcomeBack, NotRegistered, SignUp } from "../../assets/constants/constant";
+import { forgotPassword } from "../../services/serviceApiCalls";
+import { IforgotPasswordValue } from "../../interface/login_interface";
+import { MssLogo } from "../../assets/constants/constant";
 import "../../assets/css/signup.css";
 import logo from "../../assets/images/logo.png";
-import profile from "../../assets/images/profile.jpg";
-import { isLoggedIn } from "../../redux/actions/fetch_action";
-import { useDispatch } from 'react-redux';
 
-const Login = () => {
-  const initialState: IloginValue = {
+
+const ForgotPassword = () => {
+  const initialState: IforgotPasswordValue = {
     email: "",
-    password: "",
+    newPassword: "",
+    answer: "",
     common: ""
   };
 
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
-  const [input, setInput] = useState<IloginValue>(initialState);
-  const [errors, setErrors] = useState<IloginValue>(initialState);
+  const [input, setInput] = useState<IforgotPasswordValue>(initialState);
+  const [errors, setErrors] = useState<IforgotPasswordValue>(initialState);
 
   const validateInput = (name: string, value: string) => {
     let errorMessage = "";
@@ -28,8 +26,11 @@ const Login = () => {
       case "email":
         errorMessage = !value ? "Please enter email" : "";
         break;
-      case "password":
-        errorMessage = !value ? "Please enter Password" : "";
+      case "newPassword":
+        errorMessage = !value ? "Please enter new Password" : (value.length < 6) ? "Password must be at least 6 characters long" : "";
+        break;
+      case "answer":
+        errorMessage = !value ? "Please enter the secret answer" : "";
         break;
       default:
         break;
@@ -50,10 +51,10 @@ const Login = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const newErrors: IloginValue = initialState;
+    const newErrors: IforgotPasswordValue = initialState;
     let formIsValid = true;
 
-    (Object.keys(input) as Array<keyof IloginValue>).forEach((key) => {
+    (Object.keys(input) as Array<keyof IforgotPasswordValue>).forEach((key) => {
       const errorMessage = validateInput(key, input[key]);
       if (errorMessage) {
         formIsValid = false;
@@ -62,19 +63,10 @@ const Login = () => {
     });
 
     if (formIsValid) {
-      loginUser(input)
+      forgotPassword(input)
         .then((res) => {
           if (res && res.success) {
-            const authData = {
-              token: res.token,
-              user: {
-                name: res.data.name,
-                email: res.data.email
-              }
-            }
-            dispatch(isLoggedIn(authData))
-            localStorage.setItem("auth", JSON.stringify(authData))
-            navigate('/');
+            navigate('/login');
           }
         })
         .catch((error) => {
@@ -107,8 +99,8 @@ const Login = () => {
     <React.Fragment>
       <main>
         <div className="box">
-          <div className="inner-box">
-            <div className="forms-wrap">
+          <div className="inner-box-f">
+            <div className="forms-wrap-f">
 
               <form onSubmit={handleSubmit}>
                 <div className="logo">
@@ -117,36 +109,40 @@ const Login = () => {
                 </div>
 
                 <div className="heading">
-                  <h3>{WelcomeBack}</h3>
-                  <h6>
-                    {NotRegistered}
-                    <Link to="/signup" className="toggle">
-                      {SignUp}
-                    </Link>
-                  </h6>
+                  <h3>Reset Password</h3>
                 </div>
 
                 <div className="actual-form">
                   {displayInputField("text", "email")}
                   {errors.email && <span className="error">{errors.email}</span>}
-                  {displayInputField("password", "password")}
-                  {errors.password && (<span className="error">{errors.password}</span>)}
+                  {displayInputField("password", "newPassword")}
+                  {errors.newPassword && (<span className="error">{errors.newPassword}</span>)}
+
+                  <div className="input-wrap">
+                    <input
+                      type="text"
+                      name="answer"
+                      className="input-field"
+                      autoComplete="off"
+                      placeholder="Enter your first smartPhone model"
+                      onBlur={handleBlur}
+                      onChange={handleInputChange}
+                    />
+                  </div>
+                  {errors.answer && (<span className="error">{errors.answer}</span>)}
 
                   {errors.common && (<span className="error">{errors.common}</span>)}
-                  <div style={{position:"relative" , padding:"10px"}}>
-                    <Link to="/forgot-password" className="forgotP">Forgot Password ?</Link>
+                  <div className="f-btns">
+                    <input
+                      type="submit"
+                      value="Reset"
+                      className="reset-btn"
+                    />
+
+                    <Link to="/login" className="back-f"><i className="fa fa-angle-left"></i> Back to Login</Link>
                   </div>
-                  <input
-                    type="submit"
-                    value="Sign In"
-                    className="sign-btn"
-                  />
                 </div>
               </form>
-            </div>
-
-            <div className="image">
-              <img src={profile} alt="profile" className="img-show-1" />
             </div>
           </div>
         </div>
@@ -155,4 +151,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default ForgotPassword;

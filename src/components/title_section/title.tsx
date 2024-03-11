@@ -1,14 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { auth } from "../../firebase";
-import { signOut } from "firebase/auth";
-import { Istate, IuserState } from "../../interface/product_reducer_interface";
-import { emptyData, getUserInfo, isLoggedIn, searchFilter } from "../../redux/actions/fetch_action";
-import { collection, query, where, getDocs } from "firebase/firestore";
-import { db } from "../../firebase";
-import { IuserInfo } from "../../interface/user_data_interface";
+import { isLoggedIn, removeAuthData, searchFilter } from "../../redux/actions/fetch_action";
+import { IauthState, Istate } from "../../interface/reducer_interface";
 import { IinfoDataType } from "../../interface/data_interface";
 import MenuIcon from '@mui/icons-material/Menu';
 import { Avatar } from "@mui/material";
@@ -18,7 +12,6 @@ import SideBar from "./sideBar";
 import Menu from "./menu";
 import "../../assets/css/title.css";
 import mss from "../../assets/images/mss.jpg";
-
 
 const Title = () => {
 
@@ -30,39 +23,33 @@ const Title = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [searchResult, setSearchResult] = useState<string>("");
 
-  const isLogIn = useSelector(
-    (state: IuserState) => state.userDataReducer.isLogIn
-  );
-
   const allProducts = useSelector((state: Istate) => state.productReducer.allProducts);
 
   useEffect(() => {
-    auth.onAuthStateChanged(async (user) => {
-      if (user) {
-        dispatch(isLoggedIn(true));
+    const data = localStorage.getItem('auth')
+    if (data) {
+      const parseData = JSON.parse(data);
+      const authData = {
+        token: parseData.token,
+        user: {
+          name: parseData.user.name,
+          email: parseData.user.email
+        }
 
-        const q = query(collection(db, "UserInformation"), where("email", "==", user.email));
-        const querySnapshot = await getDocs(q);
-        querySnapshot.forEach((doc) => {
-          const data = doc.data() as IuserInfo
-          dispatch(getUserInfo(data))
-        });
-      } else {
-        dispatch(isLoggedIn(false));
-        dispatch(emptyData());
       }
-    });
-  }, [dispatch]);
+      dispatch(isLoggedIn(authData))
+    }
+    // eslint-disable-next-line
+  }, [])
 
-  const userData = useSelector(
-    (state: IuserState) => state.userDataReducer.userData
+  const auth = useSelector(
+    (state: IauthState) => state.authReducer.authData
   );
 
+
   const handleLogOut = () => {
-    signOut(auth).then(() => {
-      dispatch(isLoggedIn(false));
-      dispatch(emptyData());
-    });
+    dispatch(removeAuthData())
+    localStorage.removeItem('auth')
   };
 
   const handleCloseDrawer = () => {
@@ -92,7 +79,7 @@ const Title = () => {
     setSearchResult(e.target.value.toLowerCase());
   }
 
-  if (location.pathname === "/login" || location.pathname === "/signup" || location.pathname === '/orderconfirmation') {
+  if (location.pathname === "/login" || location.pathname === "/signup" || location.pathname === '/orderconfirmation' || location.pathname === '/forgot-password') {
     return null;
   }
 
@@ -109,7 +96,7 @@ const Title = () => {
   };
 
   const iconStyle = {
-    textAlign:'center',
+    textAlign: 'center',
     color: 'black',
     fontSize: '25px'
   }
@@ -122,7 +109,7 @@ const Title = () => {
         </div>
 
         <div className="logo-home">
-            <img src={mss} alt="logo"></img>
+          <img src={mss} alt="logo"></img>
         </div>
 
         <div className="search">
@@ -149,8 +136,8 @@ const Title = () => {
             onClick={handleMenuClick}
             data-testid="hover"
           >
-            {isLogIn ? (
-              <Avatar sx={{ color: 'white', backgroundColor: '#615966', fontWeight: '700' }}>{getAvatarLetter(userData.fullName)}</Avatar>
+            {auth.token.length > 0 ? (
+              <Avatar sx={{ color: 'white', backgroundColor: '#615966', fontWeight: '700' }}>{getAvatarLetter(auth.user.name)}</Avatar>
             ) : (
               <>
                 <i className="fa fa-user" aria-hidden="true"></i>
@@ -175,11 +162,11 @@ const Title = () => {
         </div>
 
         {anchorEl && (
-          <Menu isLoggedIn={isLogIn} handleLogOut={handleLogOut} name={userData.fullName} anchorEl={anchorEl} handleMenuClose={handleMenuClose}/>
+          <Menu handleLogOut={handleLogOut} name={auth.user.name} anchorEl={anchorEl} handleMenuClose={handleMenuClose} />
         )}
       </div>
 
-      {open && (<SideBar open={open} handleCloseDrawer={handleCloseDrawer} name={userData.fullName}/>)}
+      {open && (<SideBar open={open} handleCloseDrawer={handleCloseDrawer} name={auth.user.name} />)}
     </React.Fragment>
 
   );

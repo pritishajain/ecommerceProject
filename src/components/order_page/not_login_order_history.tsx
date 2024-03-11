@@ -1,5 +1,6 @@
 import React from "react"
 import { PleaseSignIn, SignIn, ViewOrders } from "../../assets/constants/constant";
+import "../../assets/css/not_login_wishlist.css";
 import { useNavigate } from "react-router";
 import { IinfoDataType } from "../../interface/data_interface";
 import { dataInfo } from "../common/product_tile";

@@ -21,3 +21,4 @@ export const IS_LOGGED_IN: string = "IS_LOGGED_IN";
 export const EMPTY_DATA: string = "EMPTY_DATA";
 export const UPDATE_QUANTITY: string = "UPDATE_QUANTITY";
 export const EMPTY_CART: string = "EMPTY_CART";
+export const REMOVE_AUTH_DATA: string = "REMOVE_AUTH_DATA"

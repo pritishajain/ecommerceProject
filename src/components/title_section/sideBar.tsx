@@ -4,7 +4,7 @@ import { Button, Drawer, List, ListItem, Box, Typography } from '@mui/material';
 import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 import { searchFilter } from '../../redux/actions/fetch_action';
 import { Contact, Home, Products } from '../../assets/constants/constant';
-import { Istate, IuserState } from '../../interface/product_reducer_interface';
+import { Istate, IuserState } from '../../interface/reducer_interface';
 import "../../assets/css/title.css";
 import offer from "../../assets/images/offer.jpg"
 

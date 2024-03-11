@@ -1,7 +1,7 @@
 import { IinfoDataType } from "../../interface/data_interface";
 import { IuserInfo } from "../../interface/user_data_interface";
 import { GET_USER_INFO, ADD_TO_WISH_LIST, REMOVE_FROM_WISH_LIST, ADD_TO_CART, REMOVE_FROM_CART, 
-  REMOVE_AND_ADD_TO_WISHLIST, IS_LOGGED_IN, UPDATE_QUANTITY, EMPTY_CART, EMPTY_DATA } from "../action_constants";
+  REMOVE_AND_ADD_TO_WISHLIST, UPDATE_QUANTITY, EMPTY_CART, EMPTY_DATA } from "../action_constants";
 
 export interface userAction {
   type: string;
@@ -94,12 +94,6 @@ const userDataReducer = (
             wishList: [...state.userData.wishList, action.productData],
           },
         };
-    case IS_LOGGED_IN:
-      return {
-        ...state,
-        isLogIn: action.logIn,
-      };
-
     case EMPTY_DATA:
       return {
         ...state,

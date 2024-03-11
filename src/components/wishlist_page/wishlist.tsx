@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import ProductTile from "../common/product_tile";
 import EmptyWishlist from "./empty_wishlist";
-import { IuserState } from "../../interface/product_reducer_interface";
+import { IuserState } from "../../interface/reducer_interface";
 import NotLoginWishList from "./not_login_wishlist";
 import { MyWishList } from "../../assets/constants/constant";
 import Footer from "../home_page/footer";
@@ -18,14 +18,14 @@ const Wishlist = () => {
 
   return (
     <React.Fragment>
-      {!isLogIn ? <NotLoginWishList/> : ( userData.wishList.length > 0 ? (
+      {!isLogIn ? <NotLoginWishList /> : (userData.wishList.length > 0 ? (
         <div data-testid="wishlistPage">
           <h1>{MyWishList}</h1> <ProductTile list={userData.wishList} />
         </div>
       ) : (
         <EmptyWishlist />
       ))}
-    <Footer/>
+      <Footer />
     </React.Fragment>
   );
 };

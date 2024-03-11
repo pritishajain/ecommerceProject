@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { FullName, Email, AccountDetails } from "../../assets/constants/constant";
 import "../../assets/css/account.css";
-import { IuserState } from "../../interface/product_reducer_interface";
+import { IuserState } from "../../interface/reducer_interface";
 import Footer from "../home_page/footer";
 
 const Account = () => {
