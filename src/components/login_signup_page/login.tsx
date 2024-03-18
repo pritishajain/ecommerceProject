@@ -70,11 +70,12 @@ const Login = () => {
               user: {
                 name: res.data.name,
                 email: res.data.email
-              }
+              },
+              isAdmin: res.isAdmin
             }
             dispatch(isLoggedIn(authData))
             localStorage.setItem("auth", JSON.stringify(authData))
-            navigate('/');
+            { res.isAdmin ? navigate('/admin') : navigate('/'); }
           }
         })
         .catch((error) => {
@@ -133,7 +134,7 @@ const Login = () => {
                   {errors.password && (<span className="error">{errors.password}</span>)}
 
                   {errors.common && (<span className="error">{errors.common}</span>)}
-                  <div style={{position:"relative" , padding:"10px"}}>
+                  <div style={{ position: "relative", padding: "10px" }}>
                     <Link to="/forgot-password" className="forgotP">Forgot Password ?</Link>
                   </div>
                   <input

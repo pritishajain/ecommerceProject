@@ -34,8 +34,8 @@ const Title = () => {
         user: {
           name: parseData.user.name,
           email: parseData.user.email
-        }
-
+        },
+        isAdmin: parseData.isAdmin
       }
       dispatch(isLoggedIn(authData))
     }

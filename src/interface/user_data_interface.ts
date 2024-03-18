@@ -13,5 +13,6 @@ export interface Iauthuser{
     user: {
         name:string,
         email:string
-    }
+    },
+    isAdmin: boolean
 }

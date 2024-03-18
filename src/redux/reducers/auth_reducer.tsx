@@ -16,7 +16,8 @@ const initialState = {
         user: {
             name: "",
             email: ""
-        }
+        },
+        isAdmin: false
     }
 
 }
@@ -40,7 +41,8 @@ const authReducer = (
                     user: {
                         name: "",
                         email: ""
-                    }
+                    },
+                    isAdmin: false
                 }
             }
         default: {
