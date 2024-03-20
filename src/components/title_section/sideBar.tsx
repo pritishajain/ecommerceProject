@@ -5,7 +5,7 @@ import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 import { searchFilter } from '../../redux/actions/fetch_action';
 import { Contact, Home, Products } from '../../assets/constants/constant';
 import { Istate, IuserState } from '../../interface/reducer_interface';
-import "../../assets/css/title.css";
+import "./title.css";
 import offer from "../../assets/images/offer.jpg"
 
 const SideBar = (props: { open: boolean, handleCloseDrawer: () => void, name: string }) => {

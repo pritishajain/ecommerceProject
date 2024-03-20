@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { registerUser } from "../../services/serviceApiCalls";
 import { IsignUpValue } from "../../interface/signup_interface";
 import { MssLogo, GetStarted, Account, SignIn } from "../../assets/constants/constant";
-import "../../assets/css/signup.css";
+import "./signup.css";
 import logo from "../../assets/images/logo.png";
 import profile from "../../assets/images/profile.jpg";
 

@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import LatestCollection from "../../components/home_page/latest_collection";
+import LatestCollection from "../../pages/user/home_page/latest_collection";
 
 describe("LatestCollection", () => {
 

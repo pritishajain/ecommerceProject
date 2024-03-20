@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { loginUser } from "../../services/serviceApiCalls";
 import { IloginValue } from "../../interface/login_interface";
 import { MssLogo, WelcomeBack, NotRegistered, SignUp } from "../../assets/constants/constant";
-import "../../assets/css/signup.css";
+import "./signup.css";
 import logo from "../../assets/images/logo.png";
 import profile from "../../assets/images/profile.jpg";
 import { isLoggedIn } from "../../redux/actions/fetch_action";
@@ -75,7 +75,7 @@ const Login = () => {
             }
             dispatch(isLoggedIn(authData))
             localStorage.setItem("auth", JSON.stringify(authData))
-            { res.isAdmin ? navigate('/admin') : navigate('/'); }
+             res.isAdmin ? navigate('/admin') : navigate('/'); 
           }
         })
         .catch((error) => {

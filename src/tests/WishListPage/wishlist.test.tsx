@@ -2,7 +2,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "../../redux/store";
 import { act, fireEvent, render,screen, waitFor } from "@testing-library/react";
-import Wishlist from "../../components/wishlist_page/wishlist";
+import Wishlist from "../../pages/user/wishlist_page/wishlist";
 import { IinfoDataType } from "../../interface/data_interface";
 import { ADD_TO_WISH_LIST, IS_LOGGED_IN, EMPTY_DATA} from "../../redux/action_constants";
 

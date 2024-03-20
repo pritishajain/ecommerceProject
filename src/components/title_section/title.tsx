@@ -10,7 +10,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import SideBar from "./sideBar";
 import Menu from "./menu";
-import "../../assets/css/title.css";
+import "./title.css";
 import mss from "../../assets/images/mss.jpg";
 
 const Title = () => {

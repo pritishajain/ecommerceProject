@@ -3,7 +3,7 @@ import { Provider } from "react-redux";
 import store from "../../redux/store";
 import { act,  fireEvent, render, screen,} from "@testing-library/react";
 import { IinfoDataType } from "../../interface/data_interface";
-import Products from "../../components/product_page/products";
+import Products from "../../pages/user/product_page/products";
 import { IS_LOGGED_IN, FETCH_DATA_SUCCESS } from "../../redux/action_constants";
 
 

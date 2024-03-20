@@ -3,9 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { forgotPassword } from "../../services/serviceApiCalls";
 import { IforgotPasswordValue } from "../../interface/login_interface";
 import { MssLogo } from "../../assets/constants/constant";
-import "../../assets/css/signup.css";
+import "./signup.css";
 import logo from "../../assets/images/logo.png";
-
 
 const ForgotPassword = () => {
   const initialState: IforgotPasswordValue = {

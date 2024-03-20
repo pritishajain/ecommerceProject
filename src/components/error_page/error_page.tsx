@@ -1,6 +1,6 @@
 import React from "react";
-import "../../assets/css/error_page.css";
-import Footer from "../home_page/footer";
+import "./error_page.css";
+import Footer from "../footer_section/footer";
 
 const ErrorPage = () => {
   return (
