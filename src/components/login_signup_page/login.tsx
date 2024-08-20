@@ -75,7 +75,9 @@ const Login = () => {
             }
             dispatch(isLoggedIn(authData))
             localStorage.setItem("auth", JSON.stringify(authData))
-             res.isAdmin ? navigate('/admin') : navigate('/'); 
+            // res.isAdmin ? navigate('/admin') : navigate('/'); 
+            navigate("/")
+            
           }
         })
         .catch((error) => {

@@ -12,8 +12,9 @@ import UserDashboard from "./userDashboard";
 const SignUp = lazy(() => import('./login_signup_page/signup'));
 const Login = lazy(() => import('./login_signup_page/login'));
 const ForgotPassword = lazy(() => import('./login_signup_page/forgotPassword'));
+const Home = lazy(()=>import('./Home'))
 
-const Main = () => {
+const Main = () => { 
 
   const dispatch = useDispatch();
   const [isAdmin, setIsAdmin] = useState(false)
@@ -34,17 +35,11 @@ const Main = () => {
     <React.Fragment>
       <Suspense fallback={<Loading />}>
         <Routes>
+          <Route path="/*" element = {<ErrorBoundary><Home /></ErrorBoundary>}/>
           <Route path="signup" element={<ErrorBoundary> <SignUp /> </ErrorBoundary>} />
           <Route path="login" element={<ErrorBoundary> <Login /> </ErrorBoundary>} />
           <Route path="forgot-password" element={<ErrorBoundary> <ForgotPassword /></ErrorBoundary>} />
-
-          {isAdmin ? (
-            <Route path="/admin/*" element={<AdminDashboard />} />
-          ) : (
-            <Route path="/*" element={<UserDashboard />} />
-          )}
-
-          <Route path="*" element={<ErrorPage />} />
+         
         </Routes>
       </Suspense>
 

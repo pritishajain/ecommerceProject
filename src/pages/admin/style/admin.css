@@ -1,0 +1,35 @@
+.sidebar-link {
+  @apply hover:bg-gray-300 mx-2 border border-transparent rounded-lg;
+}
+.active {
+  @apply bg-blue-200;
+}
+
+.sidebar-container.collapsed {
+  width: 80px;
+}
+
+.collapsed .logo {
+  display: none;
+}
+
+.collapsed .sidebar-link span {
+  display: none;
+}
+
+.collapsed .logobtn {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.collapsed svg {
+  margin: auto;
+}
+
+.collapsed button {
+  margin: auto;
+}
+
+.sidebar-container .w-1\/5 {
+  transition: width 0.2s ease;
+}

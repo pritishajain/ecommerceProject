@@ -6,6 +6,7 @@ import { ToastContainer } from 'react-toastify';
 import Title from "./title_section/title";
 import Loading from "./loading_comp/loading";
 import ErrorBoundary from "./error_boundary";
+import ErrorPage from "./error_page/error_page";
 
 const wait = (time: number) => {
     return new Promise(resolve => {
@@ -46,6 +47,7 @@ const UserDashboard = () => {
                     <Route path="contact" element={<ErrorBoundary> <Contact /> </ErrorBoundary>} />
                     <Route path="orderconfirmation" element={<ErrorBoundary> <OrderConfirmation /> </ErrorBoundary>} />
                     <Route path="orderhistory" element={<ErrorBoundary> <OrderHistory /> </ErrorBoundary>} />
+                    <Route path="*" element={<ErrorPage />} />
                 </Routes>
             </Suspense>
 
